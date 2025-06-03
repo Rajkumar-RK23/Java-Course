@@ -1,0 +1,155 @@
+1)leetcode
+public class demo{
+  public static void maina(String[] args){
+    int[] nums=[1,15,5,4,8];
+    target = 13;
+    Map<Integer,Integer> map = new HashMap()<>;
+    for(int i=0 ;i <nums.length(); i++){
+      int diff=target - nums[i];
+      if(map.containsKey(diff)){
+        int[] res ={map.getKey(diff),i}
+        System.out.println("output is "+ res[0]+","+ res[1]); 
+      }
+    }
+    map.put(nums[i],i);
+  }
+}
+
+2)prices = [7,1,5,3,6,4]
+these are the stocks prices on the ith days find the max profit
+
+public class Stocks{
+  public static void main(String[] args){
+    int min=prices[0];
+    int profit =0;
+    for(int i=0;i<prices.length;i++){
+      if(prices[i]<min){
+        min = profit[i];
+        int index = i ;
+      }
+      if(profit< prices[i]-min){
+        int profit = prices[i]-mi;
+        int highIndex= i;
+      }
+    }
+System.out.println("index: " + (index + 1) + ", " + (highIndex + 1));
+  }
+}
+
+
+3)bubble sort  a= {6,5,2,8,9,4}
+{5.6.2.8.9.4}
+
+{5,2,6,8,4,9}
+{2,5,6,4,8,9}
+{2,5,4,6,8,9}
+{2,4,5,6,8,9}
+swaps j and j+1; upto length-i-1
+public class Main {
+    public static void main(String[] args) {
+        int[] a = {6,5,2,8,9,4};
+        int n = a.length;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n-i-1;j++){
+              if(a[j]>a[j+1])
+              {
+                a[j] = a[j] + a[j+1];
+                a[j+1] = a[j] - a[j+1];
+                a[j] = a[j] - a[j+1];
+              }
+            }
+        }
+        for(int ele:a){
+        System.out.print(ele+"\t");
+        }
+    }
+}
+
+4)Quick sort a ={5,6,2,3,1,8,4}
+in partition 
+chose pivot=4; here low=0;high =length-1;
+i =low-1;
+j=low;
+and increment i and swap(i,j) when a[j]<pivot 
+so that we can partion  {2,6,5,3,1,8,4} then {2,3,1,6,5,8,4} and swap(i+1,pivot) and return i+1;
+and do the  quicksort process recursively if (low<high)
+
+public class QuickSort {
+    public static void main(String[] args) {
+        int[] a = {6,5,2,18,93,4};
+        quickSort(a,0,a.length-1);
+        for(int ele:a){
+        System.out.print(ele+"\t");
+        }
+    }
+    public static void quickSort(int[] a,int low, int high){
+        if(low<high){
+        int pi = Partition(a,low,high);
+        quickSort(a, low, pi-1);
+        quickSort(a, pi+1, high);
+        }
+    }
+    public static int Partition(int[] a, int low, int high){
+        int pivot = a[high];
+        int i =low-1;
+        for(int j=low;j<high;j++){
+            if(a[j]<pivot){
+                i = i+1;
+                int temp = a[i];
+                a[i]= a[j];
+                a[j]= temp;
+            }
+        }
+        int temp = a[i+1];
+        a[i+1]= pivot;
+        a[high]= temp;       
+        return i+1;
+    }
+}
+
+5)
+
+public class MergeSorting {
+    public static void main(String[] args) {
+        int[] a = {5, 6, 2, 3, 1, 8, 4};
+        mergeSort(a, 0, a.length - 1);
+
+        System.out.print("Sorted array: ");
+        for (int num : a) {
+            System.out.print(num + " ");
+        }
+    }
+
+    public static void mergeSort(int[] a, int low, int high) {
+        if (low < high) {
+            int mid = (low + high) / 2;
+            mergeSort(a, low, mid);
+            mergeSort(a, mid + 1, high);
+            merge(a, low, mid, high);
+        }
+    }
+
+    public static void merge(int[] a, int low, int mid, int high) {
+        int n1 = mid - low + 1;
+        int n2 = high - mid;
+        int[] leftArr = new int[n1];
+        int[] rightArr = new int[n2];
+        for (int i = 0; i < n1; i++)
+            leftArr[i] = a[low + i];
+        for (int j = 0; j < n2; j++)
+            rightArr[j] = a[mid + 1 + j];
+        int i = 0, j = 0, k = low;
+        while (i < n1 && j < n2) {
+            if (leftArr[i] <= rightArr[j]) {
+                a[k++] = leftArr[i++];
+            } else {
+                a[k++] = rightArr[j++];
+            }
+        }
+        while (i < n1)
+            a[k++] = leftArr[i++];
+        while (j < n2)
+            a[k++] = rightArr[j++];
+    }
+}
+
