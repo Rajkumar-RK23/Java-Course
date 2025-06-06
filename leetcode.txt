@@ -1,6 +1,5 @@
 1)leetcode
-no of ways to reach with 1 or 2 steps at a time.
-
+find the addtion of numberes gives the target
 public class demo{
   public static void maina(String[] args){
     int[] nums=[1,15,5,4,8];
